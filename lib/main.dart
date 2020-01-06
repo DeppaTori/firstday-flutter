@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'http.dart';
 
-void main(){
-  runApp(MyApp());
+void main() {
+  runApp(MaterialApp(title: 'Navigation Basics', home: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -14,51 +15,26 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            ),
-            ListTile(
-              title: Text("Hello"),
-            )
-          ],
-        )
-      ),
+          appBar: AppBar(
+            title: Text("First day - Flutter"),
+            centerTitle: true,
+          ),
+          body: ListView(
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                },
+                child: Text("Widget"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HttpPage()));
+                },
+                child: Text("HTTP"),
+              )
+            ],
+          )),
     );
   }
 }
-

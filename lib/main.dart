@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'http.dart';
+import 'redux.dart';
 
 void main() {
   runApp(MaterialApp(title: 'Navigation Basics', home: MyApp()));
@@ -32,6 +33,13 @@ class _MyAppState extends State<MyApp> {
                       MaterialPageRoute(builder: (context) => HttpPage()));
                 },
                 child: Text("HTTP"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ReduxPage()));
+                },
+                child: Text("Redux"),
               )
             ],
           )),

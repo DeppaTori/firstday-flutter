@@ -5,7 +5,7 @@ import 'package:myflutterapp/reducer.dart';
 
 import 'counterState.dart';
 
-enum Action { Inc }
+enum Action { Inc, Dec, Double, Half}
 
 class ReduxPage extends StatelessWidget {
 
@@ -40,14 +40,37 @@ class ColumnData extends StatelessWidget {
             Text("The value of counter is "+state.counter.toString()),
             StoreConnector<CounterState,Function>(
               converter: (store){
-                return ()=>store.dispatch(Action.Inc);
+                return (action)=>store.dispatch(action);
               },
               builder: (context, callback){
-                return FlatButton(
-                  onPressed: (){
-                    callback();
-                  },
-                  child: Text("Add"),
+                return Column(
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: (){
+                        callback(Action.Inc);
+                      },
+                      child: Text("Add"),
+                    ),
+                    FlatButton(
+                      onPressed: (){
+                        callback(Action.Dec);
+                      },
+                      child: Text("Decrement"),
+                    ),
+                    FlatButton(
+                      onPressed: (){
+                        callback(Action.Double);
+                      },
+                      child: Text("Double"),
+                    ),
+                    FlatButton(
+                      onPressed: (){
+                        callback(Action.Half);
+                      },
+                      child: Text("Half"),
+                    )
+                  ],
+
                 );
               },
 
